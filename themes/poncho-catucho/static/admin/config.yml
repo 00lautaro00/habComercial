@@ -1,10 +1,4 @@
-backend:
-  name: github
-  repo: juanml14/portal-municipal
-  branch: main
-  squash_merges: true
-  
-  
+
 
 media_folder: /static/assets/
 public_folder: assets

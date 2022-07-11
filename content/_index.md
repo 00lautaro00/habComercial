@@ -20,7 +20,7 @@ wildcards:
     heading: Simulador de Habilitación
     text: Verás lo facil que es la habilitación comercial
     color: azul-capital
-    url: 
+    url: /simuladorHab/
   - image: null
     icon: cogs
     headline: Asesoramiento Online
