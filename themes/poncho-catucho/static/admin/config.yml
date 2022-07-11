@@ -1,0 +1,266 @@
+backend:
+  name: github
+  repo: juanml14/portal-municipal
+  branch: main
+  squash_merges: true
+  
+  
+
+media_folder: /static/assets/
+public_folder: assets
+media_folder_relative: true
+locale: 'es'
+slug:
+  encoding: "ascii"
+  clean_accents: true
+site_url: "https://muni-nueva.netlify.app"
+logo_url: 'https://documentaciongde.cc.gob.ar/assets/logo_catamarca_capital.svg'
+
+
+collections:
+  -
+    name: pages
+    label: Páginas
+    preview_path: /{{slug}}
+    editor:
+      preview: false
+    files:
+      -
+        file: content/_index.md
+        label: Inicio
+        name: home-page
+        media_folder: ''
+        public_folder: ''
+        fields:
+          -
+            name: title
+            label: Título
+            widget: string
+            hint: meta-etiqueta que se usa en buscadores y al compartir la página
+          -
+            name: description
+            label: Descripción
+            widget: text
+            hint: meta-etiqueta que se usa en buscadores y al compartir la página
+
+          -
+            name: image
+            label: Imagen Principal
+            widget: object
+            required: false
+            fields:
+              -
+                name: src
+                label: Imagen
+                widget: image
+                required: false
+              -
+                name: alt
+                label: 'Texto alternativo'
+                widget: string
+                required: false
+              -
+                name: title
+                label: Title
+                widget: string
+                required: false
+          -
+            name: banner
+            label: Banner
+            widget: object
+            fields:
+              -
+                name: headline
+                label: encabezado
+                widget: string
+              -
+                name: text
+                label: Texto
+                widget: markdown
+              -
+                name: img
+                label: Imagen
+                widget: image
+          -
+            name: separacion
+            label: Separacion en origen
+            widget: object
+            fields:
+              -
+                name: headline
+                label: encabezado
+                widget: string
+              -
+                name: text
+                label: Texto
+                widget: markdown
+              -
+                name: humedos
+                label: Humedos
+                widget: object
+                fields:
+                  -
+                    name: text
+                    label: Texto
+                    widget: markdown
+                  -
+                    name: horario
+                    label: horario
+                    widget: markdown
+              -
+                name: secos
+                label: Secos
+                widget: object
+                fields:
+                  -
+                    name: text
+                    label: Texto
+                    widget: markdown
+              -
+                name: pasos
+                label: pasos
+                widget: object
+                fields:
+                  -
+                    name: headline
+                    label: Encabezado
+                    widget: string
+          -
+            name: concientizadores
+            label: Concientizadores
+            widget: object
+            fields:
+              -
+                name: headline
+                label: Encabezado
+                widget: string
+              -
+                 name: text
+                 label: Texto
+                 widget: markdown
+      -
+        file: content/preguntas-frecuentes.md
+        label: Preguntas frecuentes
+        name: faq-page
+        media_folder: ''
+        public_folder: ''
+        fields:
+          -
+            name: title
+            label: Título
+            widget: string
+            hint: meta-etiqueta que se usa en buscadores y al compartir la página
+          -
+            name: description
+            label: Descripción
+            widget: text
+            hint: meta-etiqueta que se usa en buscadores y al compartir la página
+          -
+            name: image
+            label: Imagen Principal
+            widget: object
+            required: false
+            fields:
+              -
+                name: src
+                label: Imagen
+                widget: image
+                required: false
+              -
+                name: alt
+                label: 'Texto alternativo'
+                widget: string
+                required: false
+              -
+                name: title
+                label: Title
+                widget: string
+                required: false
+          -
+            label: Contenido
+            name: body
+            widget: markdown
+            required: false
+  -
+    name: manejo-de-residuos
+    label: Manejo de residuos
+    label_singular: post de manejo de residuos
+    folder: content/manejo-de-residuos
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    preview_path: manejo-de-residuos/{{slug}}
+    editor:
+      preview: true
+    filter: 
+      field: "filter"
+      value: true
+    fields:
+      -
+        label: Título
+        name: title
+        widget: string
+      -
+        label: Encabezado
+        name: header
+        widget: string
+      -
+        label: Mostrar en CMS
+        name: filter
+        widget: hidden
+        default: true
+      -
+        label: Borrador
+        name: draft
+        required: false
+        widget: boolean
+        default: false
+        hint: al estar en modo borrador la noticia no será visible
+      -
+        name: icon
+        label: Icono
+        widget: object
+        required: false
+        fields:
+          -
+            name: src
+            label: Imagen
+            widget: image
+            required: false
+          -
+            name: alt
+            label: 'Texto alternativo'
+            widget: string
+            required: false
+          -
+            name: title
+            label: Title
+            widget: string
+            required: false
+      -
+        name: image
+        label: Imagen
+        widget: object
+        required: false
+        fields:
+          -
+            name: src
+            label: Imagen
+            widget: image
+            required: false
+          -
+            name: alt
+            label: 'Texto alternativo'
+            widget: string
+            required: false
+          -
+            name: title
+            label: Title
+            widget: string
+            required: false
+      -
+        label: Contenido
+        name: body
+        widget: markdown
+        required: false

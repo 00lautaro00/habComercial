@@ -1,0 +1,63 @@
+{{ $imgSrc := ""}}
+{{ if .Params.image }}
+  {{ if in .Params.image.src ".svg" }}
+    {{ $imgSrc = .Params.image.src}}
+  {{else}}
+
+    {{ if in .Params.image.src "/assets/" }}
+      {{ $image := resources.Get .Params.image.src }}
+      {{ if $image }}
+            <script>console.log("{{.Params.image.src }}" )</script>
+
+      {{ if gt $image.Width 1000}}
+        {{ $thumbnail := $image.Resize "1000x" }}
+        {{ $imgSrc = $thumbnail.RelPermalink}}
+      {{else}}
+        {{ $imgSrc = .Params.image.src}}
+      {{ end }}
+      {{else}}
+      {{ $imgSrc = .Params.image.src}}{{ end }}
+    {{else}}
+      {{ with .Resources.Match .Params.image.src}}
+        {{ range . }}
+          {{ $image := . }}
+          {{ if gt $image.Width 1000}}
+            {{ $thumbnail := $image.Resize "1000x" }}
+            {{ $imgSrc = $thumbnail.RelPermalink}}
+          {{else}}
+            {{ $imgSrc = .Params.image.src}}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $imgSrc = "/assets/foto-portada.jpg"}}
+{{ end }}
+
+
+<section class="jumbotron  " style="background-image: url('{{$imgSrc}}');">
+  <div class="jumbotron_body jumboarticle vcenter">
+    <div class="container">
+      <div class="row">
+        <!--div class="vcenter col-xs-12 vcenter">
+          <img src="/assets/iso-logo-pei.svg" style="max-width: 150px;" class="responsive" />
+        </div-->
+        <div style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap;">
+          
+
+          <div class="text-center">
+            <h1>{{.Params.headline}}</h1>
+            <p class="h4">{{.Params.claim}}</p>
+            <p class="h4">{{.Params.claim2}}</p>
+            {{ partial "components/news-grid.html" . }}
+
+            <button type="button" class="btn btn-primary">{{.Params.button}}</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</section>

@@ -1,0 +1,13 @@
+{{ define "main" }} {{ range .Pages }}
+<div class="col-md-4">
+    <a class="panel panel-default panel-border" href="{{.RelPermalink}}">
+        <div class="panel-heading" style="background-image: url({{.Params.img}})"></div>
+        <div class="panel-body">
+            <div class="media-body">
+                <h3>{{.Title}}</h3>
+                <p>Todos los servicios por si sos empleado, monotributista, querés capacitarte o estás buscando trabajo.</p>
+            </div>
+        </div>
+    </a>
+</div>
+{{end}} {{ end }}
