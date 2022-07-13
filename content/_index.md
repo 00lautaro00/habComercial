@@ -1,16 +1,24 @@
 ---
+title: Habilitaciones Comerciales
 headline: Solicita tu Habilitacion Comercial
 claim: Ahora el tramite es mucho mas facil y rapido
 claim2: Desde la comodidad de su hogar
 button: Solicita ya 
 
-Title: Tal véz te interese
-span1: Preguntas Frecuentes
-span2: Simulador de Habilitacion
-span3: Conocé cómo se tramita
-span4: Asesoramiento Online 
-span5: Requisitos
-span6: Solicitar Habilitación
+wildcards_title:
+  - icon: icono-arg-cambio-tecnologico
+    title: Simulador de Habilitación
+  - icon: icono-arg-reclamo-consulta
+    title: Preguntas Frecuentes
+  - icon: icono-arg-documento
+    title: Conocé cómo se tramita
+  - icon: icono-arg-acceso-a-especialistas
+    title: Asesoramiento Online
+  - icon: icono-arg-requisitos
+    title: Requisitos
+  - icon: icono-arg-tramite
+    title: Solicitar Habilitacion
+   
 
 
 wildcards:
@@ -20,7 +28,7 @@ wildcards:
     heading: Simulador de Habilitación
     text: Verás lo facil que es la habilitación comercial
     color: azul-capital
-    url: /simuladorHab/
+    link: /fase/simulador
   - image: null
     icon: cogs
     headline: Asesoramiento Online

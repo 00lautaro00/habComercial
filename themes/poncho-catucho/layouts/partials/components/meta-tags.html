@@ -1,0 +1,46 @@
+<title>{{ .Title }}</title>
+
+{{ if .Description }}
+<meta name="description" content="{{ .Description | plainify }}" />
+<meta name="twitter:description" content="{{ .Description | plainify }}"/>
+<meta property="og:description" content="{{ .Description | plainify }}" />
+{{ else if .Params.description}}
+<meta name="description" content="{{ .Params.description | plainify }}" />
+<meta name="twitter:description" content="{{ .Params.description | plainify }}"/>
+<meta property="og:description" content="{{ .Params.description | plainify }}" />
+{{else}}
+<meta name="description" content="{{ .Params.content | plainify | truncate 150}}" />
+<meta name="twitter:description" content="{{ .Params.content | plainify | truncate 150}}"/>
+<meta property="og:description" content="{{ .Params.content | plainify | truncate 150}}" />
+{{ end }}
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@elpartenoticias">
+{{ if .Params.headline }}
+    <meta name="twitter:title" content="{{ .Params.headline }}">
+    <meta property="og:title" content="{{ .Params.headline }}" />
+{{else}}
+<meta name="twitter:title" content="{{ .Title }}">
+    <meta property="og:title" content="{{ .Title }}" />
+{{ end }}
+{{ if .Params.image.src }}
+    {{ with .Resources.Match .Params.image.src}}
+        {{ range . }}
+            {{$image := .}}
+            <meta name="twitter:image" content="{{$image.Permalink}}">
+            <meta property="og:image" itemprop="image" content="{{$image.Permalink}}" />
+        {{ end }}
+    {{ end }}
+    
+{{ else }}
+<meta name="twitter:image" content="https:/planestratyegico.catamarcacapital.gob.ar/assets/profile.jpg">
+<meta property="og:image" itemprop="image" content="https:/planestratyegico.catamarcacapital.gob.ar/assets/profile.jpg" />
+{{end}}
+<!-- Open Graph data -->
+{{ if .IsHome }}
+<meta property="og:type" content="webpage" />
+{{else }}
+<meta property="og:type" content="article" />
+{{end }}
+<meta property="og:url" content="{{.Permalink}}" />
+<meta property="og:site_name" content="Plan estratégico integral" />

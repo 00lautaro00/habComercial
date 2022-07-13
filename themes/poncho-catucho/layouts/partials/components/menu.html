@@ -1,37 +1,22 @@
-
 <article>
     <h2 class="vcenter eje text-center">{{.Title}}</h2>
-
     <section class="bg-gray section-sm">
        <div class="">
           <div class="panel-pane pane-atajos">
-              <div class="pane-content">
+              <div class="pane-content row flex m-y-2">
+               {{ range .Params.wildcards_title }}
                  <ul class="nav nav-icons nav-icons-selected">
-                    <li class=""><a href="#">
-                        <i class="icono-arg-reclamo-consulta bg-info"></i>
-                        <span>{{.Params.span1}}</span></a></li>
-                     <li class=""><a href="#">
-                        <i class="icono-arg-cambio-tecnologico bg-info"></i>
-                        <span>{{.Params.span2}}</span></a></li>
-                     <li class=""><a href="#">
-                        <i class="icono-arg-documento bg-info"></i>
-                        <span>{{.Params.span3}}</span></a></li>
-                     <li class=""><a href="#">
-                         <i class="icono-arg-acceso-a-especialistas bg-info"></i>
-                         <span>{{.Params.span4}}</span></a></li>
-                     <li class=""><a href="#">
-                         <i class="icono-arg-requisitos bg-info"></i>
-                         <span>{{.Params.span5}}</span></a></li>
-                     <li class=""><a href="#">
-                         <i class="icono-arg-tramite bg-info"></i>
-                         <span>{{.Params.span6}}</span></a></li>
-                         
+                    <li class="">
+                       <a href="#">
+                        <i class="{{.icon}} bg-info"></i>
+                        <span>{{.title}}</span>
+                       </a>
+                     </li>
                  </ul>
+                 {{end}}
              </div>
          </div>
        </div> 
     </section>
- 
- 
  </article>
 
