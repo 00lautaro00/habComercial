@@ -28,20 +28,19 @@ wildcards:
     heading: Simulador de Habilitación
     text: Verás lo facil que es la habilitación comercial
     color: azul-capital
-    link: /fase/simulador
+    url: /simulador/
   - image: null
     icon: cogs
     headline: Asesoramiento Online
     heading: Asesoramiento Online
     text: Asesorate con nuestros expertos, estamos para responder tus preguntas
     color: azul-capital
-    url: 
+    url: /solicita/
   - image: null
     icon: cogs
     headline: Paso a paso como hacer
     heading: Paso a paso
     text: Entra para saber los pasos a seguir para la habilitación comercial
     color: azul-capital
-    url: 
-
+    url: /pasoapaso
 ---

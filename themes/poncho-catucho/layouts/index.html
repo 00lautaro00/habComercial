@@ -8,7 +8,7 @@
         <section class="row flex m-y-2">
             {{ range .Params.wildcards }}
             <div class="col-md-4">
-                <a class="panel panel-default panel-border {{.color}}" href="{{.link}}">
+                <a class="panel panel-default panel-border {{.color}}" href="{{.url}}">
                     <div class="panel-heading bg-{{.color}} vcenter" style="background-image: url(imagen.jpg)">
                         <h1 class="text-white vcenter eje text-center"><i
                            class="fa fa-{{.icon}} fa-fw fa-2x "></i>{{.headline}}</h1>
@@ -17,12 +17,12 @@
                         <div class="media-body">
                             <h3>{{.heading}}</h3>
                             <p>{{.text}}</p>
+                            
                         </div>
                     </div>
                 </a>
             </div>
             {{ end }}
         </section>
-            
 </main>
 {{ end }}

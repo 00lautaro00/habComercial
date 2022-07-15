@@ -1,0 +1,59 @@
+{{ $imgSrc := ""}}
+{{ if .Params.image }}
+  {{ if in .Params.image.src ".svg" }}
+    {{ $imgSrc = .Params.image.src}}
+  {{else}}
+
+    {{ if in .Params.image.src "/assets/" }}
+      {{ $image := resources.Get .Params.image.src }}
+      {{ if $image }}
+      {{ if gt $image.Width 1000}}
+        {{ $thumbnail := $image.Resize "1000x" }}
+        {{ $imgSrc = $thumbnail.RelPermalink}}
+      {{else}}
+        {{ $imgSrc = .Params.image.src}}
+      {{ end }}
+      {{else}}
+      {{ $imgSrc = .Params.image.src}}{{ end }}
+    {{else}}
+      {{ with .Resources.Match .Params.image.src}}
+        {{ range . }}
+          {{ $image := . }}
+          {{ if gt $image.Width 1000}}
+            {{ $thumbnail := $image.Resize "1000x" }}
+            {{ $imgSrc = $thumbnail.RelPermalink}}
+          {{else}}
+            {{ $imgSrc = .Params.image.src}}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $imgSrc = "/assets/foto-portada.jpg"}}
+{{ end }}
+
+<section class="jumbotron  " style="background-image: url('{{$imgSrc}}');">
+  {{ partial "components/jumbotron-menu.html" . }}
+<div class="jumbotron_body ">
+    <div class="container">
+      <div class="row jumbo-logo vcenter">
+        <div class="col-xs-12 text-center">
+          <div>
+            {{ if .Params.headline }}
+            
+            <h2>{{.Params.headline}}</h2>
+            {{else}}
+            <h2>{{.Title}}</h2>
+            {{ end }}
+            <p class="h4">{{.Params.claim}}</p>
+            {{ with .Params.subsubtitle }}
+              <p>{{.}}</p>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</section>

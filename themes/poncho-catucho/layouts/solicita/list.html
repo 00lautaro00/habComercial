@@ -1,0 +1,19 @@
+{{ define "main" }} 
+{{ partial "components/jumbotron-small" . }}
+
+<article>
+        <div class="container m-y-2">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 article-content">
+                    <div class="title-description">
+                        <h1>{{.Params.headline}}</h1>
+                        <div class="row">
+                            {{.Content}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</article>
+
+{{end}}

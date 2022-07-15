@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "components/jumbotron-small" . }}
+{{ partial "components/presentation" . }}
+
+{{ $i := 1}}
+{{ range .Params.pasomenu}}
+<div class="row article-content" >
+    <div class="panel ">
+       <div class="panel-heading" style="padding: 0 4rem;">
+        <a data-toggle="collapse" data-parent="#accordion" href="#faq{{$i}}" aria-expanded="false" class="collapsed" style="text-decoration: none;">
+                  <div class="">
+                    <h2 class="panel-title">{{.title}}</h2>
+                  </div>
+               </a>
+       </div>
+       <div id="faq{{$i}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+          <div class="panel-body">{{.claim}}</div>
+       </div>
+    {{ $i = add $i 1}}
+    </div>
+</div> 
+{{end}}
+      
+{{end}}
