@@ -1,19 +1,75 @@
-{{ define "main" }} 
-{{ partial "components/jumbotron-small" . }}
+{{ define "main" }} {{ partial "components/jumbotron-small" . }}
 
-<article>
-        <div class="container m-y-2">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 article-content">
-                    <div class="title-description">
-                        <h1>{{.Params.headline}}</h1>
-                        <div class="row">
-                            {{.Content}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section class="container">
+    <div class="row">
+      <article class="content_format col-md-8 col-md-push-4">
+        <h1>{{.Params.rightTitle}}</h1>
+        <hr />
+        <div class="panel-pane pane-texto">
+          <div class="pane-content">
+            <p style="font-family: Roboto, Helvetica Neue, Helvetica, Arial,sans-serif;">
+              {{.Params.p}}
+            </p>
+          </div>
         </div>
-</article>
+
+        <a name="4"></a>
+        &nbsp;
+        <h1>{{.Params.headTitle}}</h1>
+        <hr />
+        <div class="panel-pane pane-texto">
+          <div class="pane-content">
+            <p style="font-family: Roboto, Helvetica Neue, Helvetica, Arial,sans-serif;">
+              {{.Params.claim}}
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-body" style="margin-top: 2rem" name="5">
+          <a name="5"></a>
+          <h1>{{.Params.headTitle2}}</h1>
+          <hr />
+ {{ range .Params.preguntas}}
+          <p style="font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;">
+            <strong>{{.subTitle}}</strong>
+          </p>
+          <p style="font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;">
+            {{.parrafo}}
+          </p>
+{{end}} 
+          <h1>Contacto</h1>
+          <a name="6"></a>
+          <hr />
+          <p
+            style="
+              font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+            "
+          >
+            {{.Params.datosContacto}}
+          </p>
+          <p
+            style="
+              font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+            "
+          >
+            <strong></strong>
+          </p>
+     
+        </div>
+      </article>
+
+      <aside class="col-md-4 col-md-pull-8">
+        <nav class="page-sidebar">
+          <ul class="nav nav-pills nav-stacked">
+            <p>&nbsp;</p>
+            <h1>{{.Params.leftTitle}}</h1>
+            <li><a href="#4">{{.Params.headTitle}}</a></li>
+            <li><a href="#5">{{.Params.headTitle2}}</a></li>
+            <li><a href="#6">Contacto</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </section>
 
 {{end}}
